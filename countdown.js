@@ -1,10 +1,9 @@
 (function main(){
 
-	var t = 10;
+	var t = 5;
 	var interval;
 
 	go();
-
 
 	$('#btnReset').on('click', function(){
 		clearInterval(interval);
@@ -19,6 +18,7 @@
 		var inputSecond = parseInt($('#inputSecond').val(),10);
 
 		t = inputMinute * 60 + inputSecond;
+		go();
 	});
 
 	var count = 1;
@@ -35,14 +35,16 @@
 	function go() {
 
 		interval = setInterval(function(){
-			t--;
-			var minutes = Math.floor(t/60);
-			var secondes = t % 60;
-
-			showTime(minutes, secondes);
 
 			if (t === 0) {
 				clearInterval(interval);
+			} 
+			else {
+				t--;
+				var minutes = Math.floor(t/60);
+				var secondes = t % 60;
+				
+				showTime(minutes, secondes);
 			}
 
 		},1000);

@@ -6,8 +6,18 @@
 	<link rel="stylesheet" type="text/css" href="countdown.css">
 </head>
 <body>
-	<h1>10</h1>
+	<h1>
+		<span id="hour">01</span> :
+		<span id="minute">60</span> :
+		<span id="second">60</span>
+	</h1>
+	<input id="inputHour" type="number" placeholder="Hour">
+	<input id="inputMinute" type="number" placeholder="Minute">
+	<input id="inputSecond" type="number" placeholder="Second">
+	<button id="btnInput">Reinitialize</button>
 	<button id="reset">Reset</button>
+	
+
 	<script src="node_modules/jquery/dist/jquery.js"></script>
 	<script src="countdown.js"></script>
 </body>

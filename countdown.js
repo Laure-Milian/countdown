@@ -67,30 +67,33 @@
 		$('#minute').text(minute);
 		$('#second').text(second);
 
-		if (hour < 10) {
-			$('#hour').text('0' + hour);
-		} 
-		if (minute < 10) {
-			$('#minute').text('0' + minute);
-		} 
-		if (second < 10) {
-			$('#second').text('0' + second);
-		}
-
-		if (!$('#inputHour').val()) {
-			$('#hour').text('00');
-		}
-
-		if (!$('#inputMinute').val()) {
-			$('#minute').text('00');
-		}
-
-		if (!$('#inputSecond').val()) {
-			$('#second').text('00');
-		}
+		addZero(hour, minute, second);
+		emptyInput(hour, minute, second);
 
 	});
 
+	function addZero(h, m, s) {
+		if (h < 10) {
+			$('#hour').text('0' + h);
+		} 
+		if (m < 10) {
+			$('#minute').text('0' + m);
+		} 
+		if (s < 10) {
+			$('#second').text('0' + s);
+		}
+	}
 
+	function emptyInput(h, m, s) {
+		if (!h) {
+			$('#hour').text('00');
+		}
+		if (!m) {
+			$('#minute').text('00');
+		}
+		if (!s) {
+			$('#second').text('00');
+		}
+	}
 
 })();

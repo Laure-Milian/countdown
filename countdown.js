@@ -1,6 +1,6 @@
 (function main(){
 
-	var t = 10;
+	var t = 60;
 	var interval;
 
 	go();
@@ -19,6 +19,7 @@
 		var inputSecond = parseInt($('#inputSecond').val(),10);
 
 		t = inputMinute * 60 + inputSecond;
+		go();
 	});
 
 	var count = 1;

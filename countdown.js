@@ -1,15 +1,10 @@
 (function main(){
 
-	var t = 65;
+	var t = 10;
+	var interval;
 
-	var interval = setInterval(function(){
-		t--;
-		var minutes = Math.floor(t/60);
-		var secondes = t % 60;
-		
-		showTime(minutes, secondes);
+	go();
 
-	},1000);
 
 	$('#btnReset').on('click', function(){
 		clearInterval(interval);
@@ -25,6 +20,33 @@
 
 		t = inputMinute * 60 + inputSecond;
 	});
+
+	var count = 1;
+	$('#btnStop').on('click', function() {
+		count ++;
+		if (count % 2 === 0) {
+			clearInterval(interval);
+		}
+		else {
+			go();
+		}		
+	});
+
+	function go() {
+
+		interval = setInterval(function(){
+			t--;
+			var minutes = Math.floor(t/60);
+			var secondes = t % 60;
+
+			showTime(minutes, secondes);
+
+			if (t === 0) {
+				clearInterval(interval);
+			}
+
+		},1000);
+	}
 
 	function showTime(m, s) {
 		if (m < 10 && s < 10) {
